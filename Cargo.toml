@@ -8,7 +8,7 @@ license = "MIT"
 repository = "https://github.com/aashishbishow/QMem"
 documentation = "https://github.com/aashishbishow/QMem/README.md"
 keywords = ["qbits"]
-categories = ["binary"]
+categories = ["science"]
 
 [dependencies]
 rand = "0.9.0"
