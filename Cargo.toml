@@ -1,7 +1,14 @@
 [package]
 name = "QMem"
 version = "0.1.0"
+authors = ["Aashish BishowKarma <aashishbishowkarma@outlook.com>"]
 edition = "2024"
+description = "A quantum-inspired memory simulation library in Rust that allows bits to exist in superposition."
+license = "MIT"
+repository = "https://github.com/aashishbishow/QMem"
+documentation = "https://github.com/aashishbishow/QMem/README.md"
+keywords = ["qbits"]
+categories = ["binary"]
 
 [dependencies]
 rand = "0.9.0"
