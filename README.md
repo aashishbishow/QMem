@@ -21,13 +21,13 @@ Add QMem as a dependency in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-qmem = "0.1.1"
+qmem = "0.1.3"
 ```
 
 Then import it in your Rust project:
 
 ```rust
-use qmem::QMem;
+use QMem::QMem;
 ```
 
 ---
@@ -37,7 +37,7 @@ use qmem::QMem;
 Here's a simple example demonstrating how to use QMem:
 
 ```rust
-use qmem::QMem;
+use QMem::QMem;
 
 fn main() {
     // Create a new QMem instance with all bits in superposition.
