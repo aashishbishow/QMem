@@ -178,6 +178,7 @@ impl QMem {
 }
 
 fn main() {
+    // Example Usages
     let mut q_array = QMem::new();
 
     println!("Initial state:");
