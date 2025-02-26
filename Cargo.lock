@@ -3,13 +3,6 @@
 version = 4
 
 [[package]]
-name = "QMem"
-version = "0.1.1"
-dependencies = [
- "rand",
-]
-
-[[package]]
 name = "bitflags"
 version = "2.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -61,6 +54,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "60946a68e5f9d28b0dc1c21bb8a97ee7d018a8b322fa57838ba31cc878e22d99"
 dependencies = [
  "unicode-ident",
+]
+
+[[package]]
+name = "qmem"
+version = "0.1.1"
+dependencies = [
+ "rand",
 ]
 
 [[package]]

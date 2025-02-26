@@ -1,5 +1,5 @@
 [package]
-name = "QMem"
+name = "qmem"
 version = "0.1.1"
 authors = ["Aashish BishowKarma <aashishbishowkarma@outlook.com>"]
 edition = "2024"
