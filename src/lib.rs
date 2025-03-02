@@ -4,7 +4,7 @@ use rand::rngs::OsRng;
 use rand::{random, Rng};
 
 #[derive(Debug, Clone, Copy, PartialEq)]
-pub struct Complex {
+struct Complex {
     real: f64,
     imag: f64,
 }
@@ -38,6 +38,21 @@ impl Complex {
     }
 }
 
+#[derive(Debug, Clone)]
+struct StateVector {
+    amplitudes: Vec<Complex>,
+}
+
+impl StateVector {
+    // Create a new state vector for 'n' qubits, initialized to |0...0>
+    fn new(num_qubits: usize) -> Self {
+        let dim = 1 << num_qubits;
+        let mut amplitudes = vec![Complex::new(0.0, 0.0); dim];
+        amplitudes[0] = Complex::new(1.0, 0.0); // |0...0>
+        Self { amplitudes }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -51,5 +66,12 @@ mod tests {
         assert_eq!(a.mul(&b), Complex::new(-5.0, 10.0));
         assert_eq!(a.scale(2.0), Complex::new(2.0, 4.0));
         assert_eq!(a.add(&b), Complex::new(4.0, 6.0));
+    }
+
+    #[test]
+    fn test_new_statevector() {
+        let sv = StateVector::new(3);
+        assert_eq!(sv.amplitudes.len(), 8); // 2^3 = 8
+        assert_eq!(sv.amplitudes[0], Complex::new(1.0, 0.0)); // |000⟩ state
     }
 }
