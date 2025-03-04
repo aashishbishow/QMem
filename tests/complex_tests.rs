@@ -1,8 +1,9 @@
 use QMem::utils::complex::Complex;
 
+
 #[cfg(test)]
 mod integration_tests {
-    use super::Complex;
+    use super::*;
 
     #[test]
     fn test_mul_and_div() {
