@@ -72,14 +72,14 @@ impl Complex {
     pub fn sin(&self) -> Complex {
         Complex::new(
             self.real.sin() * self.imag.cosh(),
-            self.real.cosh() * self.imag.sin(),
+            self.real.cos() * self.imag.sinh()
         )
     }   
 
     pub fn cos(&self) -> Complex {
         Complex::new(
             self.real.cos() * self.imag.cosh(),
-            -self.real.sinh() * self.imag.sin(),
+            -self.real.sin() * self.imag.sinh()
         )
     }   
 
