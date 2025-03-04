@@ -2,8 +2,8 @@ use std::fmt;
 
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct Complex {
-    real: f64,
-    imag: f64,
+    pub real: f64,
+    pub imag: f64,
 }
 
 impl Complex {
@@ -109,13 +109,110 @@ impl fmt::Display for Complex {
 }
 
 #[cfg(test)]
-mod tests {
+mod unit_tests {
     use super::*;
 
     #[test]
-    fn test_complex_new() {
-        let z = Complex::new(3.0, 4.0);
-        assert_eq!(z.real, 3.0);
-        assert_eq!(z.imag, 4.0);
+    fn test_new() {
+        let c = Complex::new(3.0, 4.0);
+        assert_eq!(c.real, 3.0);
+        assert_eq!(c.imag, 4.0);
     }
+
+    #[test]
+    fn test_magnitude_squared() {
+        let c = Complex::new(3.0, 4.0);
+        assert_eq!(c.magnitude_squared(), 25.0);
+    }
+
+    #[test]
+    fn test_magnitude() {
+        let c = Complex::new(3.0, 4.0);
+        assert_eq!(c.magnitude(), 5.0);
+    }
+
+    #[test]
+    fn test_conjugate() {
+        let c = Complex::new(3.0, 4.0);
+        let conj = c.conj();
+        assert_eq!(conj, Complex::new(3.0, -4.0));
+    }
+
+    #[test]
+    fn test_add() {
+        let c1 = Complex::new(1.0, 2.0);
+        let c2 = Complex::new(3.0, 4.0);
+        assert_eq!(c1.add(&c2), Complex::new(4.0, 6.0));
+    }
+
+    #[test]
+    fn test_sub() {
+        let c1 = Complex::new(5.0, 6.0);
+        let c2 = Complex::new(3.0, 4.0);
+        assert_eq!(c1.sub(&c2), Complex::new(2.0, 2.0));
+    }
+
+    #[test]
+    fn test_mul() {
+        let c1 = Complex::new(1.0, 2.0);
+        let c2 = Complex::new(3.0, 4.0);
+        assert_eq!(c1.mul(&c2), Complex::new(-5.0, 10.0));
+    }
+
+    #[test]
+    fn test_div() {
+        let c1 = Complex::new(1.0, 2.0);
+        let c2 = Complex::new(3.0, 4.0);
+        assert_eq!(c1.div(&c2), Complex::new(0.44, 0.08));
+    }
+
+    #[test]
+    fn test_scale() {
+        let c = Complex::new(1.0, -1.0);
+        assert_eq!(c.scale(2.0), Complex::new(2.0, -2.0));
+    }
+
+    #[test]
+    fn test_exp() {
+        let c = Complex::new(0.0, std::f64::consts::PI);
+        assert_eq!(c.exp(), Complex::new(-1.0, 0.0));
+    }
+
+    #[test]
+    fn test_log() {
+        let c = Complex::new(1.0, 0.0);
+        assert_eq!(c.log(), Complex::new(0.0, 0.0));
+    }
+
+    #[test]
+    fn test_sqrt() {
+        let c = Complex::new(4.0, 0.0);
+        assert_eq!(c.sqrt(), Complex::new(2.0, 0.0));
+    }
+
+    #[test]
+    fn test_pow() {
+        let c = Complex::new(2.0, 0.0);
+        let exp = Complex::new(2.0, 0.0);
+        assert_eq!(c.pow(&exp), Complex::new(4.0, 0.0));
+    }
+
+    #[test]
+    fn test_sin() {
+        let c = Complex::new(0.0, 0.0);
+        assert_eq!(c.sin(), Complex::new(0.0, 0.0));
+    }
+
+    #[test]
+    fn test_cos() {
+        let c = Complex::new(0.0, 0.0);
+        assert_eq!(c.cos(), Complex::new(1.0, 0.0));
+    }
+
+    #[test]
+    fn test_tan() {
+        let c = Complex::new(0.0, 0.0);
+        assert_eq!(c.tan(), Complex::new(0.0, 0.0));
+    }
+
 }
