@@ -1,3 +1,8 @@
+Bring in the complex module from the utils folder
+#[path = "../utils/complex.rs"]
+use crate::utils::complex;
+pub mod utils;
+
 #[allow(non_snake_case)]
 use core::num;
 use std::fmt;
