@@ -1,4 +1,5 @@
 #![allow(non_snake_case)]
+
 //! # Quantum Memory Simulator
 //! 
 //! A simple library for simulating quantum memory operations

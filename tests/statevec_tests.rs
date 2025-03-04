@@ -1,10 +1,7 @@
-use QMem::utils::statevec::StateVector;
-
 #[cfg(test)]
 mod integration_tests {
+    use QMem::utils::statevec::StateVector;
     use QMem::utils::complex::Complex;
-
-    use super::StateVector;
 
     #[test]
     fn test_hadamard_and_measure() {
